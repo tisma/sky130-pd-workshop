@@ -1,6 +1,4 @@
-# Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
-
-### SKY130_D1_SK1 - How to talk to computers
+# Sky130 PD Workshop - Advanced Physical Design using OpenLANE/SKY130
 
 ## Overview
 OpenLANE is an opensource tool or flow used for opensource tape-outs. The OpenLANE flow comprises a variety of tools such as Yosys, ABC, OpenSTA, Fault, OpenROAD app, Netgen and Magic which are used to harden chips and macros, i.e. generate final GDSII from the design RTL. The primary goal of OpenLANE is to produce clean GDSII with no human intervention. OpenLANE has been tuned to function for the Google-Skywater130 Opensource Process Design Kit.
