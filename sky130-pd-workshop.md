@@ -423,6 +423,16 @@ The above timing parameters can be computed by noting down various values from t
 
 ```Cell fall delay = (4.07479 - 4.05) = 24.79ps```
 
+### MAGIC Inverter Layout
+
+In MAGIC the first layer is the local interconnect layer (locali).
+1. metal 1: purple color
+2. metal 2: pink color
+3. nwell: solid dashed lines
+4. ndiff: green color
+5. pdiff: brown color
+
+When a poly crosses a ndiff it’s a nmos. Similarly, when a ploy crosses a pdiff it’s a pmos.
 
 ![](pics/s27.png)
 ![](pics/s28.png)
@@ -432,30 +442,67 @@ The above timing parameters can be computed by noting down various values from t
 ![](pics/s32.png)
 ![](pics/s33.png)
 ![](pics/s34.png)
+Enabling grids with key `g`
 ![](pics/s35.png)
 ![](pics/s36.png)
 ![](pics/s37.png)
+Extracting SPICE:
 ![](pics/s38.png)
 ![](pics/s39.png)
 ![](pics/s40.png)
+Copy `lib` files and `lef` to the src directory of the design so we can include it easily.
 ![](pics/s41.png)
+Include locations for the additional `lef` files. With newer version of Openlane environment variables have changed:
+`LIB_MIN` -> `LIB_FASTEST`
+`LIB_MAX` -> `LIB_SLOWEST`
 ![](pics/s42.png)
 ![](pics/s43.png)
 ![](pics/s44.png)
+Notice the chip area and the `tns` and `wns` timings.
 ![](pics/s45.png)
 ![](pics/s46.png)
 ![](pics/s47.png)
 ![](pics/s48.png)
 ![](pics/s49.png)
+We can see in the MAGIC that our inverted has been placed in the netlist.
 ![](pics/s50.png)
 ![](pics/s51.png)
+Prepare `sdc` file config for the static time analisis.
 ![](pics/s52.png)
 ![](pics/s53.png)
 ![](pics/s54.png)
 ![](pics/s55.png)
+We can see that the slack timing is violated so we need to change a few parameters to try to reduce it.
 ![](pics/s56.png)
 ![](pics/s57.png)
 ![](pics/s58.png)
 ![](pics/s59.png)
+We are running the `cts` analisis.
 ![](pics/s60.png)
 ![](pics/s61.png)
+![](pics/s62.png)
+![](pics/s63.png)
+![](pics/s64.png)
+![](pics/s65.png)
+![](pics/s66.png)
+![](pics/s67.png)
+![](pics/s68.png)
+![](pics/s69.png)
+![](pics/s70.png)
+![](pics/s71.png)
+![](pics/s72.png)
+![](pics/s73.png)
+![](pics/s74.png)
+![](pics/s75.png)
+![](pics/s76.png)
+Now the slack timing is met.
+![](pics/s77.png)
+![](pics/s78.png)
+![](pics/s79.png)
+![](pics/s80.png)
+![](pics/s81.png)
+![](pics/s82.png)
+![](pics/s83.png)
+Finally we got the SPEF file.
+![](pics/s84.png)
+![](pics/s85.png)
